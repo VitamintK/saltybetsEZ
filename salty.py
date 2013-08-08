@@ -4,6 +4,8 @@ import mechanize
 from BeautifulSoup import *
 br = mechanize.Browser()
 import cookielib
+import pickle
+#tool to find matchup odds
 
 """technical stuff"""
 cj = cookielib.LWPCookieJar()
@@ -43,7 +45,8 @@ soup = BeautifulSoup(resp.get_data())
 resp.set_data(soup.prettify())
 br.set_response(resp)
 print soup
-
+with open('statspage','w') as p:
+    p.write(str(soup))
 if False:
     i = .01
     while i < 1:
