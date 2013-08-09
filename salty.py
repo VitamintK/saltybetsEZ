@@ -7,6 +7,8 @@ import cookielib
 import pickle
 #tool to find matchup odds
 
+online = False
+
 """technical stuff"""
 cj = cookielib.LWPCookieJar()
 br.set_cookiejar(cj)
@@ -28,25 +30,43 @@ br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
 br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
 """end technical stuff"""
 
-url = "http://saltybet.com/authenticate?signin=1"
-resp = br.open(url)
-#use BeautifulSoup to prettify the html before running it through mechanize
-soup = BeautifulSoup(resp.get_data())
-resp.set_data(soup.prettify())
-br.set_response(resp)
-br.select_form(nr=0)
-br['email'] = cf.email
-br['pword'] = cf.pword
-returns = br.submit()
-url = "http://saltybet.com/stats"
-resp = br.open(url)
-#use BeautifulSoup to prettify the html before running it through mechanize
-soup = BeautifulSoup(resp.get_data())
-resp.set_data(soup.prettify())
-br.set_response(resp)
-print soup
-with open('statspage','w') as p:
-    p.write(str(soup))
+if online:
+    url = "http://saltybet.com/authenticate?signin=1"
+    resp = br.open(url)
+    #use BeautifulSoup to prettify the html before running it through mechanize
+    soup = BeautifulSoup(resp.get_data())
+    resp.set_data(soup.prettify())
+    br.set_response(resp)
+    br.select_form(nr=0)
+    br['email'] = cf.email
+    br['pword'] = cf.pword
+    returns = br.submit()
+    url = "http://saltybet.com/stats"
+    resp = br.open(url)
+    #use BeautifulSoup to prettify the html before running it through mechanize
+    soup = BeautifulSoup(resp.get_data())
+    resp.set_data(soup.prettify())
+    br.set_response(resp)
+#assuming all tournaments with 'dream' in their name are mugen ai
+else:
+    with open('statspage','r') as p:
+        soup = BeautifulSoup(p.read())
+#find all tournaments with 'dream' in their name
+tournaments = soup.findAll('a')
+for hlink in tournaments:
+    #print list(hlink.contents)[0] <-- for some reason this takes forever
+    #print '{0}'.format(hlink.contents[0]) <-- for some reason this works!?!?!
+    tourneyname = '{0}'.format(hlink.contents[0])
+    for word in tourneyname.split():
+        if word == 'Dream':
+            print hlink
+            break
+    
+#print soup
+if online:
+    #saves soup to file.  unneeded.
+    with open('statspage','w') as p:
+        p.write(str(soup))
 if False:
     i = .01
     while i < 1:
@@ -65,7 +85,8 @@ if False:
         i=i*1.009
         print i
 else:
-    print returns
+    pass
+    #print returns
     """return
     for ans in SF.findAns([1,2,4,5,11]):
         br.select_form(nr=0)

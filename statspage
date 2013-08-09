@@ -2,7 +2,7 @@
 <html xmlns:og="http://ogp.me/ns#">
 <head>
 <title>Salty Bet - In Salt We Trust</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script src="http://1.2.3.4/bmi-int-js/bmi.jsversion=1350564613" language="javascript"></script>
 <meta name="description" content="Salty Bet allows you to place bets on live competitive events." />
 <meta name="keywords" content="salty bet, salty bets, fgc, betting game, salty, video game stream, twitch tv, mugen" />
 <meta property="og:description" content="Salty Bet allows you to place bets on live competitive events." />
@@ -69,7 +69,7 @@
 <div id="nav-menu">
 <ul>
 <li> <h2><a href="/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank2.png" class="levelimage" /></span></a>
-<a href="/options" target="_blank"><span class="goldtext">mabufula</span></a> (#4312) </h2>
+<a href="/options" target="_blank"><span class="goldtext">mabufula</span></a> (#4438) </h2>
 </li><li> <a href="/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
 <li> <a href="/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
 <li> <form>
@@ -100,7 +100,7 @@
         });
      } );
 </script> <div id="result">
-<br />2,442,751 bets have been placed on 11,131 matches. $1,514,247,425 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
+<br />2,506,837 bets have been placed on 11,178 matches. $1,568,534,339 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
 <table border="1" class="leaderboard">
 <thead>
 <tr>
@@ -116,10 +116,10 @@
 <tr>
 <td><a href="stats?tournament_id=75">Salty's Dream Cast Casino 5</a></td>
 <td>August 01, 2013</td>
-<td>3048</td>
-<td>29537</td>
-<td>1716438</td>
-<td>1114077151</td>
+<td>3095</td>
+<td>30378</td>
+<td>1780524</td>
+<td>1168364065</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=74">Shaker Classic 2</a></td>
@@ -650,3 +650,6 @@
 </div> <!-- End Wrapper -->
 </body>
 </html>
+<script language="javascript">&lt;!--//bmi_orig_img 0 //
+--&gt;
+</script>
