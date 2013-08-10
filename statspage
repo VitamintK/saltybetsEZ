@@ -2,7 +2,7 @@
 <html xmlns:og="http://ogp.me/ns#">
 <head>
 <title>Salty Bet - In Salt We Trust</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script src="http://1.2.3.4/bmi-int-js/bmi.jsversion=1350564613" language="javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Salty Bet allows you to place bets on live competitive events." />
 <meta name="keywords" content="salty bet, salty bets, fgc, betting game, salty, video game stream, twitch tv, mugen" />
 <meta property="og:description" content="Salty Bet allows you to place bets on live competitive events." />
@@ -23,16 +23,7 @@
 <!--&lt;script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"&gt;&lt;/script&gt;-->
 <script type="text/javascript" src="../javascript/ajax_forms_script.js"></script>
 <!-- End JavaScript -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-40611156-1', 'saltybet.com');
-  ga('send', 'pageview');
-
-</script> <script type="text/javascript">
+<script type="text/javascript">
                     var _gaq = _gaq || [];
                     _gaq.push(['_setAccount', 'UA-40611156-1']);
                     _gaq.push(['_trackPageview']);
@@ -61,17 +52,18 @@
 <!-- Begin Header/Navigation -->
 <div id="header">
 <div style="position:absolute; left:0">
-<a href="/" id="logo"><img src="../images/SALTYBETsmall.png" /></a>
+<a href="http://saltybet.com/" id="logo"><img src="../images/SALTYBETsmall.png" /></a>
 </div>
 <div style="display:inline-block; margin:6px; font-size:20px;">
 <span id="tournamentname"></span>
 </div>
 <div id="nav-menu">
 <ul>
-<li> <h2><a href="/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank2.png" class="levelimage" /></span></a>
-<a href="/options" target="_blank"><span class="goldtext">mabufula</span></a> (#4438) </h2>
-</li><li> <a href="/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
-<li> <a href="/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
+<li> <h2><a href="http://saltybet.com/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank2.png" class="levelimage" /></span></a>
+<a href="http://saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#6234) </h2>
+</li><li> <a href="http://saltybet.com/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
+<li> <a href="http://saltybet.com/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
+<li> <a href="http://forum.saltybet.com" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/forum.png" class="levelimage" />Forum</h2></a></li>
 <li> <form>
 <div id="chatRadio" style="margin-top: 3px;">
                                                 Chat: 
@@ -100,7 +92,7 @@
         });
      } );
 </script> <div id="result">
-<br />2,506,837 bets have been placed on 11,178 matches. $1,568,534,339 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
+<br />3,662,309 bets have been placed on 11,987 matches. $2,453,305,245 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
 <table border="1" class="leaderboard">
 <thead>
 <tr>
@@ -114,68 +106,84 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="stats?tournament_id=77">Salty's Dream Cast Casino 6</a></td>
+<td>August 08, 2013</td>
+<td>689</td>
+<td>30061</td>
+<td>947025</td>
+<td>713792059</td>
+</tr>
+<tr>
+<td><a href="stats?tournament_id=76">Shaker Classic 3</a></td>
+<td>August 08, 2013</td>
+<td>33</td>
+<td>6876</td>
+<td>82384</td>
+<td>49678377</td>
+</tr>
+<tr>
 <td><a href="stats?tournament_id=75">Salty's Dream Cast Casino 5</a></td>
 <td>August 01, 2013</td>
-<td>3095</td>
-<td>30378</td>
-<td>1780524</td>
-<td>1168364065</td>
+<td>3182</td>
+<td>32324</td>
+<td>1909657</td>
+<td>1289972736</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=74">Shaker Classic 2</a></td>
 <td>August 01, 2013</td>
 <td>33</td>
-<td>317</td>
-<td>5338</td>
-<td>3798908</td>
+<td>316</td>
+<td>5309</td>
+<td>3796440</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=73">Salty's Dream Cast Casino 4</a></td>
 <td>July 28, 2013</td>
 <td>2154</td>
-<td>1434</td>
-<td>144159</td>
-<td>100068885</td>
+<td>1433</td>
+<td>142477</td>
+<td>99893648</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=72">Salty's Dream Cast Casino 3</a></td>
 <td>July 26, 2013</td>
 <td>983</td>
-<td>1108</td>
-<td>69937</td>
-<td>54133727</td>
+<td>1107</td>
+<td>69098</td>
+<td>54018477</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=71">VxG</a></td>
 <td>July 26, 2013</td>
 <td>42</td>
-<td>916</td>
-<td>6889</td>
-<td>7310347</td>
+<td>915</td>
+<td>6848</td>
+<td>7308059</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=70">Salty's Dream Cast Casino 2</a></td>
 <td>July 25, 2013</td>
 <td>272</td>
-<td>414</td>
-<td>15707</td>
-<td>12528394</td>
+<td>413</td>
+<td>15484</td>
+<td>12521712</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=69">VxG Casino Royale</a></td>
 <td>July 25, 2013</td>
 <td>3</td>
-<td>88</td>
-<td>127</td>
-<td>45095</td>
+<td>87</td>
+<td>125</td>
+<td>45051</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=68">Salty's Dream Cast Casino</a></td>
 <td>July 21, 2013</td>
 <td>1971</td>
-<td>1154</td>
-<td>109351</td>
-<td>86363509</td>
+<td>1153</td>
+<td>109100</td>
+<td>86357879</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=67">Salty's Dream Cast #9</a></td>
@@ -293,9 +301,9 @@
 <td><a href="stats?tournament_id=53">Curleh Mustache West 2</a></td>
 <td>July 07, 2013</td>
 <td>62</td>
-<td>2285</td>
-<td>20552</td>
-<td>5609641</td>
+<td>2284</td>
+<td>20551</td>
+<td>5609241</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=52">Salty's Dream Cast #3</a></td>
@@ -469,9 +477,9 @@
 <td><a href="stats?tournament_id=30">GUTS 2</a></td>
 <td>June 15, 2013</td>
 <td>72</td>
-<td>735</td>
-<td>5230</td>
-<td>473533</td>
+<td>734</td>
+<td>5228</td>
+<td>473331</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=29">Wednesday Night Fights 3.4</a></td>
@@ -641,7 +649,7 @@
 <div class="footerleft">
 <a href="/logout">Logout</a> </div>
 <div class="footerright">
-<a href="/about" target="_blank">About Salty Bet</a>
+<a href="http://saltybet.com/about" target="_blank">About Salty Bet</a>
 </div>
 <div class="footercenter">
 <a href="http://www.twitter.com/saltybet" target="_blank"><img src="../images/twitterlink.png" />@SaltyBet</a>
@@ -650,6 +658,3 @@
 </div> <!-- End Wrapper -->
 </body>
 </html>
-<script language="javascript">&lt;!--//bmi_orig_img 0 //
---&gt;
-</script>

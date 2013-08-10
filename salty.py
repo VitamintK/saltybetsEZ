@@ -7,7 +7,7 @@ import cookielib
 import pickle
 #tool to find matchup odds
 
-online = False
+online = True
 
 """technical stuff"""
 cj = cookielib.LWPCookieJar()
@@ -53,6 +53,7 @@ else:
         soup = BeautifulSoup(p.read())
 #find all tournaments with 'dream' in their name
 tournaments = soup.findAll('a')
+dreams = []
 for hlink in tournaments:
     #print list(hlink.contents)[0] <-- for some reason this takes forever
     #print '{0}'.format(hlink.contents[0]) <-- for some reason this works!?!?!
@@ -60,7 +61,12 @@ for hlink in tournaments:
     for word in tourneyname.split():
         if word == 'Dream':
             print hlink
+            print tourneyname
+            dreams.append(hlink)
             break
+#for dream in dreams:
+for link in br.links():
+    print link.text
     
 #print soup
 if online:
