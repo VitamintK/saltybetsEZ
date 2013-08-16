@@ -9,6 +9,11 @@
 <meta property="og:title" content="Salty Bet" />
 <meta property="og:image" content="http://www.saltybet.com/images/SALTYBETgraph.png" />
 <!-- Begin Stylesheets -->
+<script type="text/javascript">
+//&lt;![CDATA[
+try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owlid:"cf",mirage:{responsive:0,lazy:0},mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/abv=833003145/"},atok:"c5602fe1c8ab56a182a0f6a2473327df",zone:"saltybet.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"1db5341c0bcb39f72c8e6a56d461e6a3"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/abv=340409193/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
+//]]&gt;
+</script>
 <link type="text/css" href="../css/custom-theme/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../css/master.css" />
 <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" />
@@ -23,7 +28,16 @@
 <!--&lt;script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"&gt;&lt;/script&gt;-->
 <script type="text/javascript" src="../javascript/ajax_forms_script.js"></script>
 <!-- End JavaScript -->
-<script type="text/javascript">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40611156-1', 'saltybet.com');
+  ga('send', 'pageview');
+
+</script> <script type="text/javascript">
                     var _gaq = _gaq || [];
                     _gaq.push(['_setAccount', 'UA-40611156-1']);
                     _gaq.push(['_trackPageview']);
@@ -52,7 +66,7 @@
 <!-- Begin Header/Navigation -->
 <div id="header">
 <div style="position:absolute; left:0">
-<a href="http://saltybet.com/" id="logo"><img src="../images/SALTYBETsmall.png" /></a>
+<a href="http://saltybet.com/" id="logo"><img src="../images/SALTYBETheader2.png" /></a>
 </div>
 <div style="display:inline-block; margin:6px; font-size:20px;">
 <span id="tournamentname"></span>
@@ -60,11 +74,11 @@
 <div id="nav-menu">
 <ul>
 <li> <h2><a href="http://saltybet.com/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank2.png" class="levelimage" /></span></a>
-<a href="http://saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#6234) </h2>
+<a href="http://saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#11561) </h2>
 </li><li> <a href="http://saltybet.com/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
 <li> <a href="http://saltybet.com/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
-<li> <a href="http://forum.saltybet.com" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/forum.png" class="levelimage" />Forum</h2></a></li>
-<li> <form>
+<!--&lt;li&gt; &lt;a href="http://forum.saltybet.com" class="menu" target="_blank"&gt;&lt;h2 class="nomargin"&gt;&lt;img src="../images/forum.png"class="levelimage"&gt;Forum&lt;/h2&gt;&lt;/a&gt;&lt;/li&gt;
+                                    --><li> <form>
 <div id="chatRadio" style="margin-top: 3px;">
                                                 Chat: 
                                                 <input type="radio" id="chatStream" name="radio" checked="checked" /><label for="chatStream">Stream</label>
@@ -82,7 +96,8 @@
 <a href="stats?mystats=1">My Betting History</a><br /><br />
 <a href="stats?playerstats=1">Player Statistics</a><br /><br />
 <a href="stats">Tournament Statistics</a><br /> <br />
-</div><div id="landing">
+</div>
+<div id="landing">
 <script type="text/javascript">
     $(document).ready(function() {
         $('.leaderboard').dataTable({ 
@@ -92,554 +107,424 @@
         });
      } );
 </script> <div id="result">
-<br />3,662,309 bets have been placed on 11,987 matches. $2,453,305,245 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
+<br />6,830,057 bets have been placed on 13,995 matches. $5,543,097,905 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
 <table border="1" class="leaderboard">
 <thead>
 <tr>
 <th>Event</th>
 <th>Start Date</th>
+<th>End Date</th>
 <th>Matches</th>
-<th>Bettors</th>
-<th>Bets</th>
-<th>Salty Bucks Wagered $</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><a href="stats?tournament_id=78">Salty's Dream Cast Casino 7</a></td>
+<td>August 15, 2013</td>
+<td>N/A</td>
+<td>401</td>
+</tr>
+<tr>
 <td><a href="stats?tournament_id=77">Salty's Dream Cast Casino 6</a></td>
 <td>August 08, 2013</td>
-<td>689</td>
-<td>30061</td>
-<td>947025</td>
-<td>713792059</td>
+<td>August 14, 2013</td>
+<td>2173</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=76">Shaker Classic 3</a></td>
 <td>August 08, 2013</td>
+<td>August 08, 2013</td>
 <td>33</td>
-<td>6876</td>
-<td>82384</td>
-<td>49678377</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=75">Salty's Dream Cast Casino 5</a></td>
 <td>August 01, 2013</td>
-<td>3182</td>
-<td>32324</td>
-<td>1909657</td>
-<td>1289972736</td>
+<td>August 08, 2013</td>
+<td>3189</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=74">Shaker Classic 2</a></td>
 <td>August 01, 2013</td>
-<td>33</td>
-<td>316</td>
-<td>5309</td>
-<td>3796440</td>
+<td>August 01, 2013</td>
+<td>34</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=73">Salty's Dream Cast Casino 4</a></td>
 <td>July 28, 2013</td>
-<td>2154</td>
-<td>1433</td>
-<td>142477</td>
-<td>99893648</td>
+<td>August 01, 2013</td>
+<td>2155</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=72">Salty's Dream Cast Casino 3</a></td>
 <td>July 26, 2013</td>
-<td>983</td>
-<td>1107</td>
-<td>69098</td>
-<td>54018477</td>
+<td>July 28, 2013</td>
+<td>1066</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=71">VxG</a></td>
 <td>July 26, 2013</td>
+<td>July 28, 2013</td>
 <td>42</td>
-<td>915</td>
-<td>6848</td>
-<td>7308059</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=70">Salty's Dream Cast Casino 2</a></td>
-<td>July 25, 2013</td>
+<td>July 26, 2013</td>
+<td>July 26, 2013</td>
 <td>272</td>
-<td>413</td>
-<td>15484</td>
-<td>12521712</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=69">VxG Casino Royale</a></td>
 <td>July 25, 2013</td>
+<td>July 25, 2013</td>
 <td>3</td>
-<td>87</td>
-<td>125</td>
-<td>45051</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=68">Salty's Dream Cast Casino</a></td>
 <td>July 21, 2013</td>
-<td>1971</td>
-<td>1153</td>
-<td>109100</td>
-<td>86357879</td>
+<td>July 26, 2013</td>
+<td>1978</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=67">Salty's Dream Cast #9</a></td>
 <td>July 19, 2013</td>
+<td>July 20, 2013</td>
 <td>104</td>
-<td>197</td>
-<td>7060</td>
-<td>8490296</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=66">The Run Back 7/18/2013</a></td>
 <td>July 18, 2013</td>
+<td>July 19, 2013</td>
 <td>26</td>
-<td>314</td>
-<td>2083</td>
-<td>1318996</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=65">Salty's Dream Cast</a></td>
-<td>July 18, 2013</td>
-<td>32</td>
-<td>33</td>
-<td>174</td>
-<td>18117</td>
+<td>July 21, 2013</td>
+<td>July 21, 2013</td>
+<td>41</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=64">Wednesday Night Fights 7/17/2013</a></td>
 <td>July 18, 2013</td>
+<td>July 18, 2013</td>
 <td>32</td>
-<td>342</td>
-<td>2768</td>
-<td>1985322</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=63">Salty's Dream Cast #8</a></td>
 <td>July 16, 2013</td>
+<td>July 17, 2013</td>
 <td>89</td>
-<td>284</td>
-<td>6840</td>
-<td>7643147</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=62">EVO 2013 Day 3</a></td>
 <td>July 14, 2013</td>
+<td>July 15, 2013</td>
 <td>59</td>
-<td>7391</td>
-<td>67649</td>
-<td>32608059</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=61">EVO 2013 Day 2</a></td>
 <td>July 13, 2013</td>
-<td>91</td>
-<td>5461</td>
-<td>63388</td>
-<td>27389198</td>
+<td>July 14, 2013</td>
+<td>92</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=60">EVO 2013</a></td>
 <td>July 12, 2013</td>
-<td>100</td>
-<td>4891</td>
-<td>61043</td>
-<td>21574661</td>
+<td>July 13, 2013</td>
+<td>104</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=59">Shaker Classic</a></td>
 <td>July 11, 2013</td>
+<td>July 12, 2013</td>
 <td>52</td>
-<td>282</td>
-<td>5267</td>
-<td>2843070</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=58">Wednesday Night Fights 7/10/2013</a></td>
 <td>July 11, 2013</td>
+<td>July 11, 2013</td>
 <td>21</td>
-<td>218</td>
-<td>1326</td>
-<td>867257</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=57">Next Level Battle Circuit 27</a></td>
 <td>July 10, 2013</td>
+<td>July 11, 2013</td>
 <td>29</td>
-<td>435</td>
-<td>3298</td>
-<td>1312947</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=56">Salty's Dream Cast #6</a></td>
 <td>July 09, 2013</td>
+<td>July 10, 2013</td>
 <td>102</td>
-<td>292</td>
-<td>8767</td>
-<td>2973824</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=55">Salty's Dream Cast #5</a></td>
 <td>July 08, 2013</td>
+<td>July 09, 2013</td>
 <td>84</td>
-<td>257</td>
-<td>6041</td>
-<td>1592237</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=54">Salty's Dream Cast #4</a></td>
 <td>July 08, 2013</td>
+<td>July 08, 2013</td>
 <td>64</td>
-<td>272</td>
-<td>5830</td>
-<td>2244006</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=53">Curleh Mustache West 2</a></td>
 <td>July 07, 2013</td>
+<td>July 08, 2013</td>
 <td>62</td>
-<td>2284</td>
-<td>20551</td>
-<td>5609241</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=52">Salty's Dream Cast #3</a></td>
 <td>July 07, 2013</td>
+<td>July 07, 2013</td>
 <td>77</td>
-<td>130</td>
-<td>3497</td>
-<td>804364</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=51">UFC 162</a></td>
 <td>July 06, 2013</td>
+<td>July 07, 2013</td>
 <td>11</td>
-<td>63</td>
-<td>174</td>
-<td>53022</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=50">Salty's Dream Cast #2</a></td>
 <td>July 05, 2013</td>
+<td>July 06, 2013</td>
 <td>146</td>
-<td>154</td>
-<td>4255</td>
-<td>762414</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=49">The Run Back 7/4/2013</a></td>
 <td>July 05, 2013</td>
+<td>July 05, 2013</td>
 <td>22</td>
-<td>128</td>
-<td>818</td>
-<td>318065</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=48">Wednesday Night Fights 7/3/2013</a></td>
 <td>July 04, 2013</td>
+<td>July 04, 2013</td>
 <td>35</td>
-<td>175</td>
-<td>1370</td>
-<td>260831</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=47">Next Level Battle Circuit 26</a></td>
 <td>July 03, 2013</td>
+<td>July 04, 2013</td>
 <td>28</td>
-<td>245</td>
-<td>1476</td>
-<td>894634</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=46">Salty's Dream Cast</a></td>
 <td>July 03, 2013</td>
+<td>July 03, 2013</td>
 <td>53</td>
-<td>51</td>
-<td>752</td>
-<td>87352</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=45">When's Marvel 7/3/2013</a></td>
-<td>July 02, 2013</td>
+<td>July 03, 2013</td>
+<td>July 03, 2013</td>
 <td>19</td>
-<td>179</td>
-<td>978</td>
-<td>234785</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=44">WCS America Season 2 Qualifier #1</a></td>
 <td>July 02, 2013</td>
+<td>July 02, 2013</td>
 <td>7</td>
-<td>28</td>
-<td>77</td>
-<td>20910</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=43">MLG Spring Championship 2013</a></td>
 <td>June 30, 2013</td>
+<td>June 30, 2013</td>
 <td>6</td>
-<td>96</td>
-<td>203</td>
-<td>61183</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=42">CEO 2013</a></td>
 <td>June 28, 2013</td>
+<td>July 01, 2013</td>
 <td>160</td>
-<td>1866</td>
-<td>25360</td>
-<td>6994458</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=41">The Run Back 3.7</a></td>
 <td>June 28, 2013</td>
+<td>June 28, 2013</td>
 <td>21</td>
-<td>229</td>
-<td>1236</td>
-<td>305154</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=40">Wednesday Night Fights 3.7</a></td>
 <td>June 27, 2013</td>
+<td>June 27, 2013</td>
 <td>33</td>
-<td>152</td>
-<td>1103</td>
-<td>350356</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=39">Next Level Battle Circuit 25</a></td>
 <td>June 26, 2013</td>
+<td>June 27, 2013</td>
 <td>21</td>
-<td>402</td>
-<td>1944</td>
-<td>677080</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=37">Bar Battles 5</a></td>
 <td>June 22, 2013</td>
+<td>June 23, 2013</td>
 <td>38</td>
-<td>335</td>
-<td>2637</td>
-<td>590211</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=36">Midwest Championships 2013</a></td>
 <td>June 22, 2013</td>
+<td>June 25, 2013</td>
 <td>58</td>
-<td>105</td>
-<td>739</td>
-<td>103647</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=35">Final Strike 3</a></td>
-<td>June 21, 2013</td>
-<td>23</td>
-<td>126</td>
-<td>918</td>
-<td>114201</td>
+<td>June 22, 2013</td>
+<td>June 22, 2013</td>
+<td>24</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=34">The Run Back 3.6</a></td>
 <td>June 20, 2013</td>
+<td>June 22, 2013</td>
 <td>52</td>
-<td>304</td>
-<td>2312</td>
-<td>505367</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=33">Wednesday Night Fights 3.6</a></td>
 <td>June 20, 2013</td>
+<td>June 20, 2013</td>
 <td>22</td>
-<td>96</td>
-<td>497</td>
-<td>88463</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=32">Next Level Battle Circuit 24</a></td>
 <td>June 19, 2013</td>
-<td>26</td>
-<td>420</td>
-<td>2183</td>
-<td>552408</td>
+<td>June 20, 2013</td>
+<td>27</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=31">Ultimate Fight Night</a></td>
 <td>June 17, 2013</td>
+<td>June 18, 2013</td>
 <td>5</td>
-<td>77</td>
-<td>144</td>
-<td>9320</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=30">GUTS 2</a></td>
 <td>June 15, 2013</td>
+<td>June 16, 2013</td>
 <td>72</td>
-<td>734</td>
-<td>5228</td>
-<td>473331</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=29">Wednesday Night Fights 3.4</a></td>
-<td>June 12, 2013</td>
+<td>June 13, 2013</td>
+<td>June 13, 2013</td>
 <td>38</td>
-<td>193</td>
-<td>1112</td>
-<td>86897</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=28">Madcatz E3</a></td>
 <td>June 12, 2013</td>
+<td>June 12, 2013</td>
 <td>10</td>
-<td>18</td>
-<td>65</td>
-<td>1642</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=27">Nortwest Majors V</a></td>
 <td>June 09, 2013</td>
+<td>June 10, 2013</td>
 <td>15</td>
-<td>249</td>
-<td>961</td>
-<td>144469</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=26">Next Level Battle Circuit 22</a></td>
 <td>June 05, 2013</td>
+<td>June 06, 2013</td>
 <td>27</td>
-<td>455</td>
-<td>2030</td>
-<td>144240</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=25">The Run Back 3.3</a></td>
 <td>May 31, 2013</td>
+<td>May 31, 2013</td>
 <td>27</td>
-<td>222</td>
-<td>1057</td>
-<td>62260</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=24">Next Level Battle Circuit 21</a></td>
 <td>May 29, 2013</td>
+<td>May 30, 2013</td>
 <td>23</td>
-<td>485</td>
-<td>2480</td>
-<td>145257</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=22">UFGT 9</a></td>
 <td>May 24, 2013</td>
+<td>May 26, 2013</td>
 <td>233</td>
-<td>3368</td>
-<td>32353</td>
-<td>1734473</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=21">The Run Back 3.1</a></td>
 <td>May 24, 2013</td>
+<td>May 24, 2013</td>
 <td>22</td>
-<td>126</td>
-<td>691</td>
-<td>45170</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=20">UFGT9 Pre Show</a></td>
 <td>May 23, 2013</td>
+<td>May 23, 2013</td>
 <td>7</td>
-<td>34</td>
-<td>68</td>
-<td>1585</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=19">SoCal ST Games</a></td>
-<td>May 19, 2013</td>
+<td>May 20, 2013</td>
+<td>May 20, 2013</td>
 <td>13</td>
-<td>32</td>
-<td>102</td>
-<td>2456</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=18">Eastcoast Throwdown V</a></td>
 <td>May 18, 2013</td>
+<td>May 19, 2013</td>
 <td>105</td>
-<td>1174</td>
-<td>8318</td>
-<td>500585</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=17">Next Level Battle Circuit 19</a></td>
 <td>May 15, 2013</td>
+<td>May 16, 2013</td>
 <td>26</td>
-<td>386</td>
-<td>1573</td>
-<td>109600</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=16">Cross Counter Live!</a></td>
-<td>May 14, 2013</td>
+<td>May 15, 2013</td>
+<td>May 15, 2013</td>
 <td>3</td>
-<td>27</td>
-<td>36</td>
-<td>2032</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=15">Divekick eSports Hour</a></td>
 <td>May 13, 2013</td>
+<td>May 13, 2013</td>
 <td>14</td>
-<td>43</td>
-<td>200</td>
-<td>4841</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=14">Vindication</a></td>
 <td>May 11, 2013</td>
+<td>May 12, 2013</td>
 <td>53</td>
-<td>246</td>
-<td>1409</td>
-<td>75328</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=13">Salt Fest 2013</a></td>
 <td>May 11, 2013</td>
+<td>May 11, 2013</td>
 <td>2</td>
-<td>5</td>
-<td>7</td>
-<td>177</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=12">Final Strike 2</a></td>
-<td>May 10, 2013</td>
+<td>May 11, 2013</td>
+<td>May 11, 2013</td>
 <td>30</td>
-<td>171</td>
-<td>893</td>
-<td>43451</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=11">Wednesday Night Fights 2.6</a></td>
 <td>May 08, 2013</td>
+<td>May 09, 2013</td>
 <td>31</td>
-<td>90</td>
-<td>439</td>
-<td>23249</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=10">Next Level Battle Circuit 18</a></td>
 <td>May 08, 2013</td>
+<td>May 08, 2013</td>
 <td>9</td>
-<td>114</td>
-<td>324</td>
-<td>24698</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=7">Toryuken 2013</a></td>
-<td>May 04, 2013</td>
-<td>55</td>
-<td>199</td>
-<td>698</td>
-<td>36463</td>
+<td>May 05, 2013</td>
+<td>May 05, 2013</td>
+<td>63</td>
 </tr>
 </tbody>
 </table>
