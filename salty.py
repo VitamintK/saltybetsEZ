@@ -195,7 +195,7 @@ def elo_matches():
     playerlist = {}
     matchlist = open_matches()
     
-    for match in matchlist:
+    for match in reversed(matchlist):
         for i in 0,1:
             player = match[i]
             if player not in playerlist:
