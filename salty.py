@@ -12,6 +12,7 @@ from collections import OrderedDict
 online = True
 
 def save_stats():
+    """Retrieves all match stats from given illuminati account and saves them to statspage."""
     """technical stuff"""
     cj = cookielib.LWPCookieJar()
     br.set_cookiejar(cj)
@@ -66,17 +67,41 @@ def save_stats():
     matchlist = []
     for dream in dreams:
         responsetest = br.follow_link(dream)
-        responsoup = BeautifulSoup(responsetest.get_data())
-        matches = responsoup.findAll('tr')
-        for match in matches:
-            span = match.findAll('span')
-            try:
-                matchlist.append((span[0].text, span[1].text, span[2].text))
-            except:
+        #I should really stop using infinite loops
+        while True:
+            responsoup = BeautifulSoup(responsetest.get_data())
+            matches = responsoup.findAll('tr')
+            for match in matches:
+                span = match.findAll('span')
                 try:
-                    matchlist.append((span[0].text, span[1].text))
+                    matchlist.append((span[0].text, span[1].text, span[2].text))
                 except:
-                    print span
+                    try:
+                        matchlist.append((span[0].text, span[1].text))
+                    except:
+                        print span
+            print "PRINTING LINKS"
+            print ""
+            #prettifying 
+            responsetest.set_data(responsoup.prettify())
+            br.set_response(responsetest)
+            #if "Next" in (link.text for link in br.links()):
+            #    print 'good shit'
+            try:
+                responsetest = br.follow_link(text='Next')
+                print ""
+                print "NEXT PAGE NEXT PAGE NEXT PAGE NEXT PAGE NEXT PAGE"
+                print ""
+            except:
+                print ""
+                print "NO MORE NO MORE NO MORE NO MOREN O MORE NO MORE NO MORE NORE MO"
+                print ""
+                break
+                
+            #THERES MORE PAGES
+                    #THERES MORE PAGES
+                    #THERES MORE PAGES
+                    #NEXT BUTTON
 
     with open("matches",'w') as p:
         pickle.dump(matchlist,p)
@@ -101,6 +126,7 @@ def find_matches(case_sensitive = False):
             break
         faceoff = False
         firstsecond = ([],[])
+        elopair = []
         for match in matchlist:
             #if both contestants have battled previously
             if name1 in match and name2 in match:
@@ -140,6 +166,15 @@ def find_matches(case_sensitive = False):
                 rndelo = 1600
             print str(wins) + "/" + str(len(firstsecond[i])) + " : " + str(winpercent)
             print contestant + "'s ELO RATING: " + str(rndelo)
+            elopair.append(rndelo)
+        #print the conclusion based on difference in Elo ratings
+        if elopair[0] - elopair[1] > 5:
+            print "BET ON RED!"
+        elif elopair[1] - elopair[0] > 5:
+            print "BET ON BLUE!"
+        else:
+            print "TOO CLOSE TO CALL!"
+        print "(not liable for consequences)"
         print ""
         
 def elo_matches():
