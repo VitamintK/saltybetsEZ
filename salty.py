@@ -167,13 +167,18 @@ def find_matches(case_sensitive = False):
             print str(wins) + "/" + str(len(firstsecond[i])) + " : " + str(winpercent)
             print contestant + "'s ELO RATING: " + str(rndelo)
             elopair.append(rndelo)
+        print ""
         #print the conclusion based on difference in Elo ratings
         if elopair[0] - elopair[1] > 5:
             print "BET ON RED!"
+            print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + ")" 
         elif elopair[1] - elopair[0] > 5:
             print "BET ON BLUE!"
+            print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + ")" 
         else:
             print "TOO CLOSE TO CALL!"
+        winprob = 1/(pow(10,(elopair[1]-elopair[0])/400) + 1)
+        print "winpercentage of red: " + str(round(winprob,2))
         print "(not liable for consequences)"
         print ""
         
