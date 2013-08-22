@@ -10,7 +10,7 @@
 <meta property="og:image" content="http://www.saltybet.com/images/SALTYBETgraph.png" />
 <script type="text/javascript">
 //&lt;![CDATA[
-try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owlid:"cf",mirage:{responsive:0,lazy:0},mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/abv=2908400176/"},atok:"c5602fe1c8ab56a182a0f6a2473327df",zone:"saltybet.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"833aba02630577500f14b189b000b17f"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/abv=340409193/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
+try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owlid:"cf",mirage:{responsive:0,lazy:0},mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/abv=2908400176/"},atok:"c5602fe1c8ab56a182a0f6a2473327df",zone:"saltybet.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"f29088c4fd54736584b36eecd25f19de"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/abv=340409193/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
 //]]&gt;
 </script>
 <link type="text/css" href="../css/custom-theme/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" />
@@ -67,8 +67,8 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
 </div>
 <div id="nav-menu">
 <ul>
-<li> <h2><a href="http://saltybet.com/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank4.png" class="levelimage" /></span></a>
-<a href="http://saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#14158) </h2>
+<li> <h2><a href="http://saltybet.com/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank5.png" class="levelimage" /></span></a>
+<a href="http://saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#1218) </h2>
 </li><li> <a href="http://saltybet.com/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
 <li> <a href="http://saltybet.com/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
 <!--&lt;li&gt; &lt;a href="http://forum.saltybet.com" class="menu" target="_blank"&gt;&lt;h2 class="nomargin"&gt;&lt;img src="../images/forum.png"class="levelimage"&gt;Forum&lt;/h2&gt;&lt;/a&gt;&lt;/li&gt;
@@ -94,7 +94,7 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
         });
      } );
 </script> <div id="result">
-<br />9,769,135 bets have been placed on 16,434 matches. $10,595,471,258 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
+<br />10,106,413 bets have been placed on 16,817 matches. $11,346,816,301 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
 <table border="1" class="leaderboard">
 <thead>
 <tr>
@@ -109,7 +109,7 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
 <td><a href="stats?tournament_id=80">Salty's Dream Cast Casino 8</a></td>
 <td>August 17, 2013</td>
 <td>N/A</td>
-<td>1409</td>
+<td>1792</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=79">Shaker Classic 4</a></td>

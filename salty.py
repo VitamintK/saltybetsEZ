@@ -80,13 +80,9 @@ def save_stats():
                         matchlist.append((span[0].text, span[1].text))
                     except:
                         print span
-            print "PRINTING LINKS"
-            print ""
             #prettifying 
             responsetest.set_data(responsoup.prettify())
             br.set_response(responsetest)
-            #if "Next" in (link.text for link in br.links()):
-            #    print 'good shit'
             try:
                 responsetest = br.follow_link(text='Next')
                 print ""
@@ -97,11 +93,6 @@ def save_stats():
                 print "NO MORE NO MORE NO MORE NO MOREN O MORE NO MORE NO MORE NORE MO"
                 print ""
                 break
-                
-            #THERES MORE PAGES
-                    #THERES MORE PAGES
-                    #THERES MORE PAGES
-                    #NEXT BUTTON
 
     with open("matches",'w') as p:
         pickle.dump(matchlist,p)
@@ -117,11 +108,13 @@ def open_matches():
     return matches
 
 def find_matches(case_sensitive = False):
+    """The main method of this module enter two contestant's names to find out who will win.
+    warning: speghetti contained within."""
     matchlist = open_matches()
     elos = open_elos()
     while True:
-        name1 = raw_input("enter first name: ")
-        name2 = raw_input("enter second name: ")
+        name1 = raw_input("enter red name: ")
+        name2 = raw_input("enter blue name: ")
         if name1 == 'q' and name2 == 'q':
             break
         faceoff = False
@@ -129,14 +122,15 @@ def find_matches(case_sensitive = False):
         elopair = []
         for match in matchlist:
             #if both contestants have battled previously
-            if name1 in match and name2 in match:
-                faceoff = True
+            match = [x.lower() for x in match] #completely lowercase-ise each match
+            if name1.lower() in match and name2.lower() in match:
+                faceoff = match[2]
                 print match[2] + " won!!!!!!!!!!!!!!"
                 firstsecond[0].append(match)
                 firstsecond[1].append(match)
-            elif name1 in match:
+            elif name1.lower() in match:
                 firstsecond[0].append(match)
-            elif name2 in match:
+            elif name2.lower() in match:
                 firstsecond[1].append(match)
         #if both contestants have not battled previously
         if faceoff is False:
@@ -171,15 +165,19 @@ def find_matches(case_sensitive = False):
         #print the conclusion based on difference in Elo ratings
         if elopair[0] - elopair[1] > 5:
             print "BET ON RED!"
-            print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + ")" 
+            print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + " difference in elo)" 
         elif elopair[1] - elopair[0] > 5:
             print "BET ON BLUE!"
-            print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + ")" 
+            print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + " difference in elo)" 
         else:
             print "TOO CLOSE TO CALL!"
         winprob = 1/(pow(10,(elopair[1]-elopair[0])/400) + 1)
-        print "winpercentage of red: " + str(round(winprob,2))
+        print "winpercentage of red: " + str(round(100*winprob,2)) + "%"
         print "(not liable for consequences)"
+        if name1 == faceoff:
+            print "REMATCH: " + faceoff + " WON!  BET ON RED!!!!!!!!!!!!!!!!!"
+        elif name2 == faceoff:
+            print "REMATCH: " + faceoff + " WON!  BET ON BLUE!!!!!!!!!!!!!!!!!"
         print ""
         
 def elo_matches():
@@ -254,3 +252,41 @@ def find_elos():
 def save_all():
     save_stats()
     save_elos()
+
+def test_elos(accuracy = 15):
+    """test the elo accuracy.  5 gives 87.5%.  10 gives 90.3%"""
+    elos = open_elos()
+    matches = open_matches()
+    totals = 0
+    corrects = 0
+    for match in matches:
+        moot = False
+        redelo = get_elo(match[0],elos)
+        blueelo = get_elo(match[1],elos)
+        if redelo-blueelo>accuracy:
+            pred_winner = 0
+        elif blueelo-redelo>accuracy:
+            pred_winner = 1
+        else:
+            moot = True
+        try:
+            if match[0] == match[2]:
+                actual_winner = 0
+            else:
+                actual_winner = 1
+        except:
+            moot = True
+        if moot != True:
+            totals+=1
+            if actual_winner == pred_winner:
+                corrects+=1
+        if totals > 5000:
+            #this does not change anything
+            pass
+            #break
+    print str(totals) + " valid matches.  (the Elo difference was more than +/-" + str(accuracy)
+    print str(corrects) + " matches that were correctly predicted by Elo. (Matches where the player with the higher Elo won.)"
+    print float(corrects)/totals
+            
+
+        
