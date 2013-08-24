@@ -10,7 +10,7 @@
 <meta property="og:image" content="http://www.saltybet.com/images/SALTYBETgraph.png" />
 <script type="text/javascript">
 //&lt;![CDATA[
-try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owlid:"cf",mirage:{responsive:0,lazy:0},mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/abv=2908400176/"},atok:"c5602fe1c8ab56a182a0f6a2473327df",zone:"saltybet.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"f29088c4fd54736584b36eecd25f19de"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/abv=340409193/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
+try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owlid:"cf",mirage:{responsive:0,lazy:0},mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/abv=2332175737/"},atok:"c5602fe1c8ab56a182a0f6a2473327df",zone:"saltybet.com",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"35fc640bf9de0af82afc2403401f3000"}});var a=document.createElement("script"),b=document.getElementsByTagName("script")[0];a.async=!0;a.src="//ajax.cloudflare.com/cdn-cgi/nexp/abv=2310247235/cloudflare.min.js";b.parentNode.insertBefore(a,b);}}catch(e){};
 //]]&gt;
 </script>
 <link type="text/css" href="../css/custom-theme/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" />
@@ -60,19 +60,18 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
 <!-- Begin Header/Navigation -->
 <div id="header">
 <div style="position:absolute; left:0">
-<a href="http://saltybet.com/" id="logo"><img src="../images/SALTYBETheader2.png" /></a>
+<a href="http://www.saltybet.com/" id="logo"><img src="../images/SALTYBETheader2.png" /></a>
 </div>
 <div style="display:inline-block; margin:6px; font-size:20px;">
 <span id="tournamentname"></span>
 </div>
 <div id="nav-menu">
 <ul>
-<li> <h2><a href="http://saltybet.com/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank5.png" class="levelimage" /></span></a>
-<a href="http://saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#1218) </h2>
-</li><li> <a href="http://saltybet.com/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
-<li> <a href="http://saltybet.com/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
-<!--&lt;li&gt; &lt;a href="http://forum.saltybet.com" class="menu" target="_blank"&gt;&lt;h2 class="nomargin"&gt;&lt;img src="../images/forum.png"class="levelimage"&gt;Forum&lt;/h2&gt;&lt;/a&gt;&lt;/li&gt;
-                                    -->
+<li> <h2><a href="http://www.saltybet.com/leveling" class="menu" target="_blank"><span id="rank" class="nomargin"><img src="../images/ranksmall/rank6.png" class="levelimage" /></span></a>
+<a href="http://www.saltybet.com/options" target="_blank"><span class="goldtext">mabufula</span></a> (#1153) </h2>
+</li><li> <a href="http://www.saltybet.com/leaderboard" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/leaders.png" class="levelimage" />Leaders</h2></a></li>
+<li> <a href="http://www.saltybet.com/stats" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/stats.png" class="levelimage" />Stats</h2></a></li>
+<li> <a href="http://www.saltybet.com/forum" class="menu" target="_blank"><h2 class="nomargin"><img src="../images/forum.png" class="levelimage" />Forum</h2></a></li>
 </ul>
 </div>
 </div>
@@ -94,7 +93,7 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
         });
      } );
 </script> <div id="result">
-<br />10,106,413 bets have been placed on 16,817 matches. $11,346,816,301 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
+<br />11,077,688 bets have been placed on 17,866 matches. $14,027,746,094 Salty Bucks have been wagered.            <br /><br />(Click on an event for more detail)<br />
 <table border="1" class="leaderboard">
 <thead>
 <tr>
@@ -106,10 +105,22 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
 </thead>
 <tbody>
 <tr>
+<td><a href="stats?tournament_id=82">Salty's Dream Cast Casino 9</a></td>
+<td>August 23, 2013</td>
+<td>N/A</td>
+<td>416</td>
+</tr>
+<tr>
+<td><a href="stats?tournament_id=81">Shaker Classic 5</a></td>
+<td>August 22, 2013</td>
+<td>August 23, 2013</td>
+<td>40</td>
+</tr>
+<tr>
 <td><a href="stats?tournament_id=80">Salty's Dream Cast Casino 8</a></td>
 <td>August 17, 2013</td>
-<td>N/A</td>
-<td>1792</td>
+<td>August 22, 2013</td>
+<td>2385</td>
 </tr>
 <tr>
 <td><a href="stats?tournament_id=79">Shaker Classic 4</a></td>
@@ -533,7 +544,7 @@ try{if (!window.CloudFlare) { var CloudFlare=[{verbose:0,p:1376587105,byc:0,owli
 <div class="footerleft">
 <a href="/logout">Logout</a> </div>
 <div class="footerright">
-<a href="http://saltybet.com/about" target="_blank">About Salty Bet</a>
+<a href="http://www.saltybet.com/about" target="_blank">About Salty Bet</a>
 </div>
 <div class="footercenter">
 <a href="http://www.twitter.com/saltybet" target="_blank"><img src="../images/twitterlink.png" />@SaltyBet</a>

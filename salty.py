@@ -58,7 +58,7 @@ def save_stats():
     for link in br.links():
         tourneyname = link.text
         for word in tourneyname.split():
-            if word == 'Dream':
+            if word == 'Dream' or word == 'Shaker':
                 print tourneyname
                 dreams.append(link)
                 break
@@ -70,7 +70,7 @@ def save_stats():
         #I should really stop using infinite loops
         while True:
             responsoup = BeautifulSoup(responsetest.get_data())
-            matches = responsoup.findAll('tr')
+            matches = responsoup.findAll('tr')            
             for match in matches:
                 span = match.findAll('span')
                 try:
@@ -122,15 +122,15 @@ def find_matches(case_sensitive = False):
         elopair = []
         for match in matchlist:
             #if both contestants have battled previously
-            match = [x.lower() for x in match] #completely lowercase-ise each match
-            if name1.lower() in match and name2.lower() in match:
+            #match = [x.lower() for x in match] #completely lowercase-ise each match
+            if name1 in match and name2 in match:
                 faceoff = match[2]
                 print match[2] + " won!!!!!!!!!!!!!!"
                 firstsecond[0].append(match)
                 firstsecond[1].append(match)
-            elif name1.lower() in match:
+            elif name1 in match:
                 firstsecond[0].append(match)
-            elif name2.lower() in match:
+            elif name2 in match:
                 firstsecond[1].append(match)
         #if both contestants have not battled previously
         if faceoff is False:
@@ -253,8 +253,16 @@ def save_all():
     save_stats()
     save_elos()
 
-def test_elos(accuracy = 15):
-    """test the elo accuracy.  5 gives 87.5%.  10 gives 90.3%"""
+def get_elo_rank(contestant,elos=None,elolist=None):
+    if elolist:
+        return elolist.index(contestant)
+    elif elos:
+        return list(elos).index(contestant)
+    else:
+        return list(open_elos()).index(contestant)
+    
+def test_elos(min_diff = 15, max_diff = None, min_elo = None, max_elo = None, min_rank = None, max_rank = None):
+    """test the elo min_diff.  5 gives 87.5%.  10 gives 90.3%"""
     elos = open_elos()
     matches = open_matches()
     totals = 0
@@ -263,9 +271,10 @@ def test_elos(accuracy = 15):
         moot = False
         redelo = get_elo(match[0],elos)
         blueelo = get_elo(match[1],elos)
-        if redelo-blueelo>accuracy:
+        rmb = redelo-blueelo
+        if rmb>min_diff:
             pred_winner = 0
-        elif blueelo-redelo>accuracy:
+        elif -1*rmb>min_diff:
             pred_winner = 1
         else:
             moot = True
@@ -284,9 +293,12 @@ def test_elos(accuracy = 15):
             #this does not change anything
             pass
             #break
-    print str(totals) + " valid matches.  (the Elo difference was more than +/-" + str(accuracy)
+    print str(totals) + " valid matches.  (the Elo difference was more than +/-" + str(min_diff)
     print str(corrects) + " matches that were correctly predicted by Elo. (Matches where the player with the higher Elo won.)"
     print float(corrects)/totals
             
-
+def calculate_lr():
+    """Attempting to calculate winrates based off of logistic regression."""
+    #AP Stats page 141, 209
+    pass
         
