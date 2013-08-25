@@ -117,7 +117,7 @@ def matches_ui(case_sensitive = False):
         if name1 == 'q' and name2 == 'q':
             break
         find_match(name1,name2,matchlist,elos)
-        
+        notes_ui(name1,name2)
 
 def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
     """The main method of this module enter two contestant's names to find out who will win.
@@ -174,9 +174,11 @@ def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
     #print the conclusion based on difference in Elo ratings
     if elopair[0] - elopair[1] > 5:
         print "BET ON RED!"
+        print_uq(name2,firstsecond[1],elos)
         print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + " difference in elo)" 
     elif elopair[1] - elopair[0] > 5:
         print "BET ON BLUE!"
+        print_uq(name1,firstsecond[0],elos)
         print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + " difference in elo)" 
     else:
         print "TOO CLOSE TO CALL!"
@@ -319,10 +321,10 @@ def add_notes(contestant1,contestant2 = None):
     """function to add notes for any contestant"""
     pass
 
-def notes_UI():
+def notes_ui(contestant1,contestant2):
     """UI to add notes for 2 contestants"""
-    contestant1 = raw_input("Add notes for ")
-    contestant2 = raw_input("Add notes for ")
+    notes1 = raw_input("Add notes for " + contestant1 + ": ")
+    notes2 = raw_input("Add notes for " + contestant2 + ": ")
     pass
 
 def open_notes():
@@ -338,13 +340,20 @@ def calculate_lr():
     #AP Stats page 141, 209
     pass
 
-def get_upset_quotient(contestant,matches=None,diff_min = 5, diff_max = None):
-    """determine the number of times this player has defeated someone with a higher elo than them.
+def print_uq(contestant,matches=None,elos=None,diff_min = 5, diff_max = None):
+    """print the upset quotient:
+        determine the number of times this player has defeated someone with a higher elo than them.
         potential of this contestant to upset a higher ranked character
         used to determine,given that this character has a lower elo than another, what the chances are of an upset"""
     pts = 0
+    upsets = 0
+    total = 0 #total valid matches, not total overall
+    #trivial, but intersting to me: the highest upset differential.  Maybe could be better represented with median/mean
+    max_upset = 0
     if matches is None:
         matches = open_matches()
+    if elos is None:
+        elos = open_elos()
     for match in matches:
         if contestant in match:
             num_con = match.index(contestant)
@@ -354,20 +363,33 @@ def get_upset_quotient(contestant,matches=None,diff_min = 5, diff_max = None):
             except:
                 print "this match had no winner!"
             else:
-                con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
-                normalized = con_win_perc-.50
-                if normalized < 0:
-                    print match[0] + " versus " + match[1]
-                    print match[2] + " won!"
-                    print match[num_con] + " was projected to win!"
+                #con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
+                diff = get_elo(match[num_con],elos) - get_elo(match[num_opp],elos)
+                #normalized = con_win_perc-.50
+                if diff < 0:
+                    total+=1
+                    #print match[0] + str(get_elo(match[0])) + " versus " + match[1] + str(get_elo(match[1]))
+                    #print match[num_opp] + " was projected to win!"
+                    #print match[2] + " won!"
                     if num_win == num_con:
-                        pts += normalized * 1
-                        print "UPSET!"
+                        max_upset = max(abs(diff),max_upset)
+                        pts += diff * -1
+                        upsets+=1
+                        #print "UPSET!"
                     else:
-                        pts += normalized * -1
-                        print "NO UPSET!"
-    print pts
+                        pts += diff
+                        #print "NO UPSET!"
+    #print str(pts) + " points.  (algorithm is WIP)" useless stat for now
+    print contestant + " won " + str(upsets) + " times when not favored to win"
+    print contestant + " had " + str(total) + " times not favored to win"
+    print "Highest difference in Elo upset: " + str(round(max_upset,2))
 
 #def get_upsetted_quotient(contestant,matches=None):
  #   """determint the number of times this player has been defeated by someone with a lower elo than them"""
   #  pass
+
+def get_all_upsets():
+    pass
+
+def run():
+    matches_ui()
