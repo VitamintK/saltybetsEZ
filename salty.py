@@ -107,9 +107,8 @@ def open_matches():
         matches = pickle.load(p)
     return matches
 
-def find_matches(case_sensitive = False):
-    """The main method of this module enter two contestant's names to find out who will win.
-    warning: speghetti contained within."""
+def matches_ui(case_sensitive = False):
+    """An infinite loop for the user to input 2 names to predict the winner  based on W/L, Elo, and previous matchups"""
     matchlist = open_matches()
     elos = open_elos()
     while True:
@@ -117,69 +116,79 @@ def find_matches(case_sensitive = False):
         name2 = raw_input("enter blue name: ")
         if name1 == 'q' and name2 == 'q':
             break
-        faceoff = False
-        firstsecond = ([],[])
-        elopair = []
-        for match in matchlist:
-            #if both contestants have battled previously
-            #match = [x.lower() for x in match] #completely lowercase-ise each match
-            if name1 in match and name2 in match:
-                faceoff = match[2]
-                print match[2] + " won!!!!!!!!!!!!!!"
-                firstsecond[0].append(match)
-                firstsecond[1].append(match)
-            elif name1 in match:
-                firstsecond[0].append(match)
-            elif name2 in match:
-                firstsecond[1].append(match)
-        #if both contestants have not battled previously
-        if faceoff is False:
-            print "-------------"
-            print name1 + " has not fought " + name2 + "."
-        for i in 0,1:
-            print "------------"
-            wins = 0
-            contestant = (name1,name2)[i]
-            for match in firstsecond[i]:
-                try:
-                    if match[0] == match[2]:
-                        winner = 0
-                    else:
-                        winner = 1
-                    if match[winner] == contestant:
-                        wins+=1
-                    print match[2] + " beat " + match[1-winner]
-                except:
-                    print match
-            try:
-                winpercent = round(float(wins)/len(firstsecond[i]),1)
-                rndelo = round(get_elo(contestant,elos),2)
-            except:
-                print contestant + " is new!"
-                winpercent = -1
-                rndelo = 1600
-            print str(wins) + "/" + str(len(firstsecond[i])) + " : " + str(winpercent)
-            print contestant + "'s ELO RATING: " + str(rndelo)
-            elopair.append(rndelo)
-        print ""
-        #print the conclusion based on difference in Elo ratings
-        if elopair[0] - elopair[1] > 5:
-            print "BET ON RED!"
-            print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + " difference in elo)" 
-        elif elopair[1] - elopair[0] > 5:
-            print "BET ON BLUE!"
-            print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + " difference in elo)" 
-        else:
-            print "TOO CLOSE TO CALL!"
-        winprob = 1/(pow(10,(elopair[1]-elopair[0])/400) + 1)
-        print "winpercentage of red: " + str(round(100*winprob,2)) + "%"
-        print "(not liable for consequences)"
-        if name1 == faceoff:
-            print "REMATCH: " + faceoff + " WON!  BET ON RED!!!!!!!!!!!!!!!!!"
-        elif name2 == faceoff:
-            print "REMATCH: " + faceoff + " WON!  BET ON BLUE!!!!!!!!!!!!!!!!!"
-        print ""
+        find_match(name1,name2,matchlist,elos)
         
+
+def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
+    """The main method of this module enter two contestant's names to find out who will win.
+    warning: speghetti contained within."""
+    if matchlist is None:
+        matchlist = open_matches()
+    if elos is None:
+        elos = open_elos()
+    faceoff = False
+    firstsecond = ([],[])
+    elopair = []
+    for match in matchlist:
+        #if both contestants have battled previously
+        #match = [x.lower() for x in match] #completely lowercase-ise each match
+        if name1 in match and name2 in match:
+            faceoff = match[2]
+            print match[2] + " won!!!!!!!!!!!!!!"
+            firstsecond[0].append(match)
+            firstsecond[1].append(match)
+        elif name1 in match:
+            firstsecond[0].append(match)
+        elif name2 in match:
+            firstsecond[1].append(match)
+    #if both contestants have not battled previously
+    if faceoff is False:
+        print "-------------"
+        print name1 + " has not fought " + name2 + "."
+    for i in 0,1:
+        print "------------"
+        wins = 0
+        contestant = (name1,name2)[i]
+        for match in firstsecond[i]:
+            try:
+                if match[0] == match[2]:
+                    winner = 0
+                else:
+                    winner = 1
+                if match[winner] == contestant:
+                    wins+=1
+                print match[2] + " beat " + match[1-winner]
+            except:
+                print match
+        try:
+            winpercent = round(float(wins)/len(firstsecond[i]),1)
+            rndelo = round(get_elo(contestant,elos),2)
+        except:
+            print contestant + " is new!"
+            winpercent = -1
+            rndelo = 1600
+        print str(wins) + "/" + str(len(firstsecond[i])) + " : " + str(winpercent)
+        print contestant + "'s ELO RATING: " + str(rndelo)
+        elopair.append(rndelo)
+    print ""
+    #print the conclusion based on difference in Elo ratings
+    if elopair[0] - elopair[1] > 5:
+        print "BET ON RED!"
+        print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + " difference in elo)" 
+    elif elopair[1] - elopair[0] > 5:
+        print "BET ON BLUE!"
+        print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + " difference in elo)" 
+    else:
+        print "TOO CLOSE TO CALL!"
+    winprob = 1/(pow(10,(elopair[1]-elopair[0])/400) + 1)
+    print "winpercentage of red: " + str(round(100*winprob,2)) + "%"
+    print "(not liable for consequences)"
+    if name1 == faceoff:
+        print "REMATCH: " + faceoff + " WON!  BET ON RED!!!!!!!!!!!!!!!!!"
+    elif name2 == faceoff:
+        print "REMATCH: " + faceoff + " WON!  BET ON BLUE!!!!!!!!!!!!!!!!!"
+    print ""
+    
 def elo_matches():
     """
     The ELO System:
@@ -338,25 +347,25 @@ def get_upset_quotient(contestant,matches=None,diff_min = 5, diff_max = None):
         matches = open_matches()
     for match in matches:
         if contestant in match:
-            print match[0] + " versus " + match[1]
             num_con = match.index(contestant)
             num_opp = 1 - num_con
             try:
                 num_win = match.index(match[2])
-                print match[2] + " won!"
             except:
                 print "this match had no winner!"
             else:
                 con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
                 normalized = con_win_perc-.50
-                if normalized > 0:
+                if normalized < 0:
+                    print match[0] + " versus " + match[1]
+                    print match[2] + " won!"
                     print match[num_con] + " was projected to win!"
                     if num_win == num_con:
                         pts += normalized * 1
-                        print "NO UPSET!"
+                        print "UPSET!"
                     else:
                         pts += normalized * -1
-                        print "UPSET!"
+                        print "NO UPSET!"
     print pts
 
 #def get_upsetted_quotient(contestant,matches=None):
