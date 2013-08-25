@@ -162,14 +162,14 @@ def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
                 print match
         try:
             winpercent = round(float(wins)/len(firstsecond[i]),1)
-            rndelo = round(get_elo(contestant,elos),2)
+            origelo = get_elo(contestant,elos)
         except:
             print contestant + " is new!"
             winpercent = -1
-            rndelo = 1600
+            origelo = 1600
         print str(wins) + "/" + str(len(firstsecond[i])) + " : " + str(winpercent)
-        print contestant + "'s ELO RATING: " + str(rndelo)
-        elopair.append(rndelo)
+        print contestant + "'s ELO RATING: " + str(round(origelo,2))
+        elopair.append(origelo)
     print ""
     #print the conclusion based on difference in Elo ratings
     if elopair[0] - elopair[1] > 5:
@@ -366,11 +366,11 @@ def print_uq(contestant,matches=None,elos=None,diff_min = 5, diff_max = None):
                 #con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
                 diff = get_elo(match[num_con],elos) - get_elo(match[num_opp],elos)
                 #normalized = con_win_perc-.50
-                if diff < -1* diff_min:
+                if diff <= -1* diff_min:
                     total+=1
-                    #print match[0] + str(get_elo(match[0])) + " versus " + match[1] + str(get_elo(match[1]))
-                    #print match[num_opp] + " was projected to win!"
-                    #print match[2] + " won!"
+                    print match[0] + str(get_elo(match[0])) + " versus " + match[1] + str(get_elo(match[1]))
+                    print match[num_opp] + " was projected to win!"
+                    print match[2] + " won!"
                     if num_win == num_con:
                         max_upset = max(abs(diff),max_upset)
                         pts += diff * -1
@@ -381,7 +381,7 @@ def print_uq(contestant,matches=None,elos=None,diff_min = 5, diff_max = None):
                         #print "NO UPSET!"
     #print str(pts) + " points.  (algorithm is WIP)" useless stat for now
     print contestant + " won " + str(upsets) + " times when not favored to win"
-    print contestant + " had " + str(total) + " times not favored to win"
+    print contestant + " had " + str(total) + " times not favored to win by " + str(diff_min)
     print "Highest difference in Elo upset: " + str(round(max_upset,2))
 
 #def get_upsetted_quotient(contestant,matches=None):
