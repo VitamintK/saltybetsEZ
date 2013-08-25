@@ -297,6 +297,15 @@ def test_elos(min_diff = 15, max_diff = None, min_elo = None, max_elo = None, mi
     print str(corrects) + " matches that were correctly predicted by Elo. (Matches where the player with the higher Elo won.)"
     print float(corrects)/totals
 
+def calculate_probability(elo1=None,elo2=None,name1=None,name2=None):
+    """returns winrate probability of the contestant represented by elo1 or by name1"""
+    if elo1 and elo2:
+        return 1/(pow(10,(elo2-elo1)/400) + 1)
+    elif name1 and name2:
+        return 1/(pow(10,(get_elo(name2)-get_elo(name1))/400) + 1)
+    else:
+        return None
+
 def add_notes(contestant1,contestant2 = None):
     """function to add notes for any contestant"""
     pass
@@ -319,4 +328,37 @@ def calculate_lr():
     """Attempting to calculate winrates based off of logistic regression."""
     #AP Stats page 141, 209
     pass
-        
+
+def get_upset_quotient(contestant,matches=None,diff_min = 5, diff_max = None):
+    """determine the number of times this player has defeated someone with a higher elo than them.
+        potential of this contestant to upset a higher ranked character
+        used to determine,given that this character has a lower elo than another, what the chances are of an upset"""
+    pts = 0
+    if matches is None:
+        matches = open_matches()
+    for match in matches:
+        if contestant in match:
+            print match[0] + " versus " + match[1]
+            num_con = match.index(contestant)
+            num_opp = 1 - num_con
+            try:
+                num_win = match.index(match[2])
+                print match[2] + " won!"
+            except:
+                print "this match had no winner!"
+            else:
+                con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
+                normalized = con_win_perc-.50
+                if normalized > 0:
+                    print match[num_con] + " was projected to win!"
+                    if num_win == num_con:
+                        pts += normalized * 1
+                        print "NO UPSET!"
+                    else:
+                        pts += normalized * -1
+                        print "UPSET!"
+    print pts
+
+#def get_upsetted_quotient(contestant,matches=None):
+ #   """determint the number of times this player has been defeated by someone with a lower elo than them"""
+  #  pass
