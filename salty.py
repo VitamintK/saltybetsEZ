@@ -174,11 +174,11 @@ def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
     #print the conclusion based on difference in Elo ratings
     if elopair[0] - elopair[1] > 5:
         print "BET ON RED!"
-        print_uq(name2,firstsecond[1],elos)
+        print_uq(name2,firstsecond[1],elos,elopair[0] - elopair[1])
         print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + " difference in elo)" 
     elif elopair[1] - elopair[0] > 5:
         print "BET ON BLUE!"
-        print_uq(name1,firstsecond[0],elos)
+        print_uq(name1,firstsecond[0],elos,elopair[1] - elopair[0])
         print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + " difference in elo)" 
     else:
         print "TOO CLOSE TO CALL!"
@@ -366,7 +366,7 @@ def print_uq(contestant,matches=None,elos=None,diff_min = 5, diff_max = None):
                 #con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
                 diff = get_elo(match[num_con],elos) - get_elo(match[num_opp],elos)
                 #normalized = con_win_perc-.50
-                if diff < 0:
+                if diff < -1* diff_min:
                     total+=1
                     #print match[0] + str(get_elo(match[0])) + " versus " + match[1] + str(get_elo(match[1]))
                     #print match[num_opp] + " was projected to win!"
