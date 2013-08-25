@@ -296,6 +296,24 @@ def test_elos(min_diff = 15, max_diff = None, min_elo = None, max_elo = None, mi
     print str(totals) + " valid matches.  (the Elo difference was more than +/-" + str(min_diff)
     print str(corrects) + " matches that were correctly predicted by Elo. (Matches where the player with the higher Elo won.)"
     print float(corrects)/totals
+
+def add_notes(contestant1,contestant2 = None):
+    """function to add notes for any contestant"""
+    pass
+
+def notes_UI():
+    """UI to add notes for 2 contestants"""
+    contestant1 = raw_input("Add notes for ")
+    contestant2 = raw_input("Add notes for ")
+    pass
+
+def open_notes():
+    """function to open the notes file"""
+    pass
+
+def get_note(contestant, notes = None):
+    """function to get a note given the contestant"""
+    pass
             
 def calculate_lr():
     """Attempting to calculate winrates based off of logistic regression."""
