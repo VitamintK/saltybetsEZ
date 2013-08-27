@@ -1,4 +1,10 @@
 # -*- coding: cp1252 -*-
+"""pressing todo:
+-getupsetted quotient, in addition to the upset quotient
+-show largest upset margin regardless of min_diff
+-notes
+-make match results easier to read and more uniform from line to line.
+"""
 import config as cf
 import requests
 import mechanize
@@ -107,8 +113,9 @@ def open_matches():
         matches = pickle.load(p)
     return matches
 
-def matches_ui(case_sensitive = False):
+def matches_ui(case_sensitive = False,details=False):
     """An infinite loop for the user to input 2 names to predict the winner  based on W/L, Elo, and previous matchups"""
+    notes = open_notes()
     matchlist = open_matches()
     elos = open_elos()
     while True:
@@ -116,16 +123,18 @@ def matches_ui(case_sensitive = False):
         name2 = raw_input("enter blue name: ")
         if name1 == 'q' and name2 == 'q':
             break
-        find_match(name1,name2,matchlist,elos)
-        notes_ui(name1,name2)
+        find_match(name1,name2,matchlist,elos,notes,match_details=details)
+        notes_ui(name1,name2,notes)
 
-def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
+def find_match(name1,name2,matchlist=None,elos=None,notes=None,case_sensitive = False,match_details=False):
     """The main method of this module enter two contestant's names to find out who will win.
     warning: speghetti contained within."""
     if matchlist is None:
         matchlist = open_matches()
     if elos is None:
         elos = open_elos()
+    if notes is None:
+        notes = open_notes()
     faceoff = False
     firstsecond = ([],[])
     elopair = []
@@ -157,11 +166,12 @@ def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
                     winner = 1
                 if match[winner] == contestant:
                     wins+=1
-                print match[2] + " beat " + match[1-winner]
+                if match_details:
+                    print match[2] + " beat " + match[1-winner]
             except:
                 print match
         try:
-            winpercent = round(float(wins)/len(firstsecond[i]),1)
+            winpercent = round(float(wins)/len(firstsecond[i]),2)
             origelo = get_elo(contestant,elos)
         except:
             print contestant + " is new!"
@@ -169,16 +179,19 @@ def find_match(name1,name2,matchlist=None,elos=None,case_sensitive = False):
             origelo = 1600
         print str(wins) + "/" + str(len(firstsecond[i])) + " : " + str(winpercent)
         print contestant + "'s ELO RATING: " + str(round(origelo,2))
+        print get_note(contestant,notes)
         elopair.append(origelo)
     print ""
     #print the conclusion based on difference in Elo ratings
     if elopair[0] - elopair[1] > 5:
         print "BET ON RED!"
         print_uq(name2,firstsecond[1],elos,elopair[0] - elopair[1])
+        elopair[0],elopair[1]=round(elopair[0],2),round(elopair[1],2) #SUPER SUPER SPAGHETTI FIX THIS
         print "(" + str(elopair[0]) + " - " + str(elopair[1]) + " = " + str(elopair[0]-elopair[1]) + " difference in elo)" 
     elif elopair[1] - elopair[0] > 5:
         print "BET ON BLUE!"
         print_uq(name1,firstsecond[0],elos,elopair[1] - elopair[0])
+        elopair[0],elopair[1]=round(elopair[0],2),round(elopair[1],2) #SUPER SUPER SPAGHETTI FIX THIS
         print "(" + str(elopair[1]) + " - " + str(elopair[0]) + " = " + str(elopair[1]-elopair[0]) + " difference in elo)" 
     else:
         print "TOO CLOSE TO CALL!"
@@ -317,23 +330,51 @@ def calculate_probability(elo1=None,elo2=None,name1=None,name2=None):
     else:
         return None
 
-def add_notes(contestant1,contestant2 = None):
-    """function to add notes for any contestant"""
-    pass
+#for now, keeping the notes in a separate file. todo: see if combining elos and notes into a dict of player objects would be more efficient (and oop!)
+def notes_setup():
+    """only needs to be ran once to create the notes file."""
+    notes = {}
+    matchlist = open_matches()
+    #getting players by parsing all matches.  could be more efficient by using the elo dict, but would require the elo file to be generated first.
+    for match in matchlist:
+        for i in 0,1:
+            player = match[i]
+            if player not in notes:
+                notes[player] = ""
+    with open('notes','w') as p:
+        pickle.dump(notes,p)
 
-def notes_ui(contestant1,contestant2):
+def add_notes(contestant1,new_notes,notes):
+    """function to add notes for any contestant"""
+    if new_notes:
+        print "(notes being added)"
+        try:
+            notes[contestant1] = notes[contestant1] + new_notes + '\n'
+            with open('notes','w') as p:
+                pickle.dump(notes,p)
+        except:
+            print contestant1 + ' notes not find'
+    else:
+        print "(no notes being added)"
+
+def notes_ui(contestant1,contestant2,notes=None):
     """UI to add notes for 2 contestants"""
     notes1 = raw_input("Add notes for " + contestant1 + ": ")
+    add_notes(contestant1,notes1,notes)
     notes2 = raw_input("Add notes for " + contestant2 + ": ")
-    pass
+    add_notes(contestant2,notes2,notes)
 
 def open_notes():
     """function to open the notes file"""
-    pass
+    with open("notes",'r') as p:
+        notes = pickle.load(p)
+    return notes
 
 def get_note(contestant, notes = None):
     """function to get a note given the contestant"""
-    pass
+    if notes is None:
+        notes = open_notes()
+    return notes[contestant]
             
 def calculate_lr():
     """Attempting to calculate winrates based off of logistic regression."""
@@ -366,22 +407,24 @@ def print_uq(contestant,matches=None,elos=None,diff_min = 5, diff_max = None):
                 #con_win_perc = calculate_probability(name1=match[num_con],name2=match[num_opp])
                 diff = get_elo(match[num_con],elos) - get_elo(match[num_opp],elos)
                 #normalized = con_win_perc-.50
-                if diff <= -1* diff_min:
-                    total+=1
-                    print match[0] + str(get_elo(match[0])) + " versus " + match[1] + str(get_elo(match[1]))
-                    print match[num_opp] + " was projected to win!"
-                    print match[2] + " won!"
+                if diff< 0:
                     if num_win == num_con:
-                        max_upset = max(abs(diff),max_upset)
-                        pts += diff * -1
-                        upsets+=1
-                        #print "UPSET!"
-                    else:
-                        pts += diff
-                        #print "NO UPSET!"
+                            max_upset = max(abs(diff),max_upset)
+                    if diff <= -1* diff_min:
+                        total+=1
+                        #print match[0] + str(get_elo(match[0])) + " versus " + match[1] + str(get_elo(match[1]))
+                        #print match[num_opp] + " was projected to win!"
+                        #print match[2] + " won!"
+                        if num_win == num_con:
+                            #max_upset = max(abs(diff),max_upset)
+                            pts += diff * -1
+                            upsets+=1
+                            #print "UPSET!"
+                        else:
+                            pts += diff
+                            #print "NO UPSET!"
     #print str(pts) + " points.  (algorithm is WIP)" useless stat for now
-    print contestant + " won " + str(upsets) + " times when not favored to win"
-    print contestant + " had " + str(total) + " times not favored to win by " + str(diff_min)
+    print contestant + " won " + str(upsets) + "/" + str(total) + " times when not favored to win by " + str(diff_min)
     print "Highest difference in Elo upset: " + str(round(max_upset,2))
 
 #def get_upsetted_quotient(contestant,matches=None):
@@ -391,5 +434,10 @@ def print_uq(contestant,matches=None,elos=None,diff_min = 5, diff_max = None):
 def get_all_upsets():
     pass
 
+def get_all_bets():
+    #find the most total money ever lost in one bet :)
+    pass
+
 def run():
+    """easier function name"""
     matches_ui()
