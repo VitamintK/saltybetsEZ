@@ -344,8 +344,10 @@ def notes_setup():
     with open('notes','w') as p:
         pickle.dump(notes,p)
 
-def add_notes(contestant1,new_notes,notes):
+def add_note(contestant1,new_notes,notes=None):
     """function to add notes for any contestant"""
+    if notes is None:
+        notes = open_notes()
     if new_notes:
         print "(notes being added)"
         try:
@@ -353,16 +355,17 @@ def add_notes(contestant1,new_notes,notes):
             with open('notes','w') as p:
                 pickle.dump(notes,p)
         except:
-            print contestant1 + ' notes not find'
+            notes[contestant1] = new_notes + '\n'
+            print contestant1 + ' notes created.'
     else:
         print "(no notes being added)"
 
 def notes_ui(contestant1,contestant2,notes=None):
     """UI to add notes for 2 contestants"""
     notes1 = raw_input("Add notes for " + contestant1 + ": ")
-    add_notes(contestant1,notes1,notes)
+    add_note(contestant1,notes1,notes)
     notes2 = raw_input("Add notes for " + contestant2 + ": ")
-    add_notes(contestant2,notes2,notes)
+    add_note(contestant2,notes2,notes)
 
 def open_notes():
     """function to open the notes file"""
@@ -374,7 +377,10 @@ def get_note(contestant, notes = None):
     """function to get a note given the contestant"""
     if notes is None:
         notes = open_notes()
-    return notes[contestant]
+    try:
+        return notes[contestant]
+    except:
+        return "This player is not catalogued."
             
 def calculate_lr():
     """Attempting to calculate winrates based off of logistic regression."""
