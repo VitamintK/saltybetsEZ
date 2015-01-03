@@ -1,7 +1,7 @@
 saltybetsEZ
 ===========
 
-A BETTING HELPER TOOL FOR SALTYBETS
+A BETTING HELPER TOOL FOR [SALTYBETS](http://www.saltybet.com/)
 
 A POET ONCE SAID:
 
